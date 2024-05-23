@@ -19,13 +19,55 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      //to do
-      //to do
+      new HtmlWebpackPlugin({
+        // object keys and values go here
+        template: './index.html',
+        title: 'J.A.T.E'
+      }),
+      new InjectManifest({
+        // object keys and values go here
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js'
+      }),
+      new WebpackPwaManifest({
+        // object keys and values go here
+        fingerprints: 'false',
+        inject: 'true',
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'Edit text using this app!',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: '/',
+        publicPath: '/',
+        icons:
+          [
+            {
+              src: path.resolve('src/images/logo.png'),
+              sizes: [96, 128, 192, 256, 384, 512],
+              destination: path.join('assets', 'icons'),
+            },
+          ]
+      })
+
     ],
 
     module: {
       rules: [
-        //
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        },
       ],
     },
   };
