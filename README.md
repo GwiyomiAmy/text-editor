@@ -4,7 +4,7 @@
 
    ## Description
    
-   This is a text editor application.
+   This is a text editor application where you can edit your text to your hearts content. It is also designed to work offline if you are not connected to the internet.
    
    ## Table of Contents 
    
@@ -20,16 +20,18 @@
    N/A
    
    ## Usage
+
+   Deployment: https://text-editor-kii2.onrender.com/
    
-   [add text]
+   Simply type. That is all. The sky is the limit. When you are ready to view it offline, click on "Install!" and it will open a window and keep the text you already typed.
+
+   ![Online](./client/src/images/screenshot1.png)
+
+   ![Offline](./client/src/images/screenshot2.png)
    
    ## License
    
    MIT
-
-   ## How to Contribute
-
-   (https://www.contributor-covenant.org/)
 
    ## Tests
 
